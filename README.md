@@ -3,9 +3,20 @@
 # gomigration
 Package gomigration provides some basic functionality to run migrations.
 
+# Install
+
+```
+go get github.com/mier85/gomigration
+```
+
 # Example for a batch migration
 ```
 package main
+
+import (
+	"github.com/gocraft/dbr"
+	"github.com/mier85/gomigration"
+)
 
 func main() {
 	migrations := make([]Migration, 0)
