@@ -14,6 +14,8 @@ go get github.com/mier85/gomigration
 package main
 
 import (
+	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocraft/dbr"
 	"github.com/mier85/gomigration"
 )
