@@ -3,7 +3,7 @@
 # gomigration
 Package gomigration provides some basic functionality to run migrations.
 
-# Install
+# How to Install
 
 ```
 go get github.com/mier85/gomigration
