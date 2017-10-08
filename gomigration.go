@@ -95,7 +95,6 @@ func (mM MigrationManager) MigrationRunner(migrations []Migration) {
 	for _, migration := range migrations {
 		if err := mM.RunSingleMigrationUp(session, migration); nil != err {
 			panic(err)
-			break
 		}
 	}
 }
