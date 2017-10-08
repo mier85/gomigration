@@ -46,7 +46,7 @@ func (mM MigrationManager) Init() {
 				id INT NOT NULL AUTO_INCREMENT,
 				name VARCHAR(255),
 				execution DATETIME,
-				PRIMARY KEY (id)		
+				PRIMARY KEY (id)
 		)`)
 	if nil != err {
 		transaction.Rollback()
@@ -82,7 +82,7 @@ func (mM MigrationManager) CheckIfSane(migrations []Migration) error {
 	list := make(map[string]bool)
 	for _, m := range migrations {
 		if _, double := list[m.Name]; double {
-			return errors.New(fmt.Sprintf("migrations name must be unique but migration \"%s\" exists at least twice", m.Name))
+			return fmt.Errorf("migrations name must be unique but migration \"%s\" exists at least twice", m.Name)
 		}
 	}
 	return nil
@@ -95,7 +95,6 @@ func (mM MigrationManager) MigrationRunner(migrations []Migration) {
 	for _, migration := range migrations {
 		if err := mM.RunSingleMigrationUp(session, migration); nil != err {
 			panic(err)
-			break
 		}
 	}
 }
