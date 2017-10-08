@@ -82,7 +82,7 @@ func (mM MigrationManager) CheckIfSane(migrations []Migration) error {
 	list := make(map[string]bool)
 	for _, m := range migrations {
 		if _, double := list[m.Name]; double {
-			return errors.New(fmt.Sprintf("migrations name must be unique but migration \"%s\" exists at least twice", m.Name))
+			return fmt.Errorf("migrations name must be unique but migration \"%s\" exists at least twice", m.Name)
 		}
 	}
 	return nil
