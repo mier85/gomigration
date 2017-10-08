@@ -46,7 +46,7 @@ func (mM MigrationManager) Init() {
 				id INT NOT NULL AUTO_INCREMENT,
 				name VARCHAR(255),
 				execution DATETIME,
-				PRIMARY KEY (id)		
+				PRIMARY KEY (id)
 		)`)
 	if nil != err {
 		transaction.Rollback()
